@@ -1,0 +1,22 @@
+<nav class="navbar nabvar-fixed-top navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+                          data-toggle="collapse" data-target="#navbarEexample1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/"><%= full_title(yield(:head_title))%></a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample1">
+			<ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "検索フォーム", '#'%></li>
+        <li><%= link_to "通知オン・オフ", '#' %></li>
+        <li><%= link_to "My page", '#' %></li>
+			</ul>
+		</div>
+	</div>
+</nav>
