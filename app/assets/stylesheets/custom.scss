@@ -1,2 +1,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+/* universal */ 
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* header */
+
+.head {
+  border-radius: 0;
+}
+
+
+/* footer */
+
+footer {
+  background-color: #EEEEEE;
+  height: 160px;
+  line-height: 1px;
+  a {
+    font-size: 24px;
+    display: inline-block;
+    margin-top: 50px;
+  }
+  h3 {
+    text-align: right;
+    color: white;
+  }
+}
+
+
+
+
+
