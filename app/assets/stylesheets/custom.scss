@@ -12,6 +12,21 @@ a {
   text-decoration: none;
 }
 
+body {
+  padding-top: 80px;
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
 
 /* header */
 
@@ -23,6 +38,7 @@ a {
 /* footer */
 
 footer {
+  margin-top: 30px;
   background-color: #EEEEEE;
   height: 160px;
   line-height: 1px;
@@ -52,6 +68,31 @@ footer {
     margin-top: 50px;
   }
 }
+
+
+/* form */
+
+input, textarea, select, .uneditable-input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 10px 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: rgb(255, 136, 0);
+  }
+}
+
 
 
 
