@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -36,11 +38,30 @@ class UsersController < ApplicationController
   
   private
 
+    #ストロングパラメーター
     def user_params
       params.require(:user).permit( :user_name, :name, :email,
                                     :password, :password_confirmation,
                                     :web_page, :introduce, :phone_number,
                                     :gender)
+    end
+
+    #before action
+
+    #ログイン済みかどうか確認
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    #正しいユーザーかどうかを確認
+    def correct_user
+      @user = User.find(params[:id])
+      unless current_user == @user
+        redirect_to root_url
+      end
     end
 
 
