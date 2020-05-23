@@ -29,7 +29,15 @@
       <%= f.label :phone_number %>
       <%= f.text_field :phone_number, class: 'form-control' %>
 
-      <!-- ここはgenderのラジオボタンを入れる　-->
+      <div class="radio-btn">
+        <%= f.label :gender %>
+        <%= f.radio_button :gender, 1 %>
+        <%= f.label :gender, "男性" %>
+        <%= f.radio_button :gender, 2 %>
+        <%= f.label :gender, "女性" %>
+        <%= f.radio_button :gender, 3 %>
+        <%= f.label :gender, "その他" %>
+      </div>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
 

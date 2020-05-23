@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :user_name, {presence: true, length: {maximum: 50}}
   
   
+  
   #渡された文字列のハッシュを返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
