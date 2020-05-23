@@ -108,6 +108,25 @@ input, textarea, select, .uneditable-input {
 }
 
 
+/* user_edit_page */
+
+.edit-info {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  p {
+    margin-bottom: 0;
+    a {
+      color: rgba(15, 15, 15, 0.7);
+      text-decoration: none;
+      &:hover {
+        color: rgba(15, 15, 15, 1);
+      }
+    }
+  }
+}
+
+
 
 
 

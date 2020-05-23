@@ -39,5 +39,13 @@
       <%= link_to "Change", "http://gravatar.com/emails",  target: "blank",
                                                               rel: "noopner" %>
     </div>
+    <div class="edit-info">
+      <p><%= link_to "編集(パスワード)", "#" %></p>
+      <p>
+        <%= link_to "ユーザー削除", "#",  method: :delete,
+                                          data: {confirm: "削除しますか？"} %>
+      </p>
+    </div>
+      
   </div>
 </div>
