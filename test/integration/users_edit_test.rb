@@ -21,7 +21,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'users/edit'
   end
 
-  test "successful edit" do
+  test "successful edit and delete" do
     get edit_user_path(@user)
     assert_equal edit_user_url(@user), session[:forwarding_url]
     log_in_as(@user)
@@ -46,7 +46,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal name, @user.name
     assert_equal user_name, @user.user_name
     assert_equal gender, @user.gender
-    
+    get edit_user_path(@user)
+    assert_select 'a[href=?]', user_path(@user), text: "ユーザー削除"
+    assert_difference 'User.count', -1 do
+      delete user_path(@user)
+    end
+    assert_not flash.empty?
+    assert_redirected_to root_url
   end
 
 end
