@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'password_updates/edit'
+
   root   'static_pages#home'
   get    '/signup', to: 'users#new'
   post   '/signup', to: 'users#create'
@@ -7,5 +9,6 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
+  resources :password_updates, only: [:edit, :update]
 
 end
