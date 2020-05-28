@@ -1,10 +1,24 @@
 <% provide(:head_title, @user.name) %>
 
-<div class="row">
-  <aside class="col-md-4">
+<div class="users-show">
+  <aside>
     <h1>
       <%= gravatar_for(@user, size: 50)%>
-      <%= @user.name %>
+      <%= @user.user_name %>
+      <% if logged_in? && current_user == @user%>
+        <%= link_to "（プロフィール編集）", edit_user_path(@user) %>
+      <% end %>
     </h1>
   </aside>
+  <% if @user.user_images.any? %>
+    <div class="show-images">
+      <h3>pictures (<%= @user.user_images.count %>) </h3>
+      <div>
+        <ol>
+          <%= render @user_images %>
+        </ol>
+      </div>
+      <%= will_paginate @user_images %>
+    </div>
+  <% end %>
 </div>

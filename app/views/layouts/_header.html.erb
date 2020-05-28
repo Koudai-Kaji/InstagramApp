@@ -14,8 +14,7 @@
 		<div class="collapse navbar-collapse" id="navbarEexample1">
 			<ul class="nav navbar-nav navbar-right">
 				<% if logged_in? %>
-					<li><%= link_to "<Login> #{current_user.name}", current_user %></li>
-					<li><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
+					<li><%= link_to "<Login> #{current_user.user_name}", current_user %></li>
 					<li><%= link_to "検索フォーム", '#'%></>
 					<li><%= link_to "通知オン・オフ", '#' %></li>
 					<li><%= link_to "ログアウト", logout_path, method: :delete %></li>

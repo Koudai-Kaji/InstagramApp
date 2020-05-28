@@ -1,0 +1,12 @@
+<%= provide(:head_title, "Picuture in detail") %>
+<h1 class="text-center">詳細写真</h1>
+
+
+<div class="image-show">
+  <%= image_tag(@user_image.picture.url) %>
+
+  <% if current_user == @user_image.user%>
+    <%= link_to "Delete picture", user_image_path(@user_image), method: :delete,
+                                  data: {confirm: "この写真を削除しますか？"} %>
+  <% end %>
+</div>
