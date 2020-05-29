@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :users
   resources :password_updates, only: [:edit, :update]
   resources :user_images,      only: [:show, :new, :create, :destroy]
+  resources :relationships,    only: [:create, :destroy]
 
 end

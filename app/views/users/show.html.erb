@@ -3,12 +3,18 @@
 <div class="users-show">
   <aside>
     <h1>
-      <%= gravatar_for(@user, size: 50)%>
+      <%= gravatar_for(@user, size: 50) %>
       <%= @user.user_name %>
-      <% if logged_in? && current_user == @user%>
+      <% if logged_in? && current_user == @user %>
         <%= link_to "（プロフィール編集）", edit_user_path(@user) %>
       <% end %>
     </h1>
+    <section class="stats">
+      <%= render 'shared/stats'%>
+    </section>
+    <section class="follow_form">
+      <%= render 'follow_form' if logged_in? %>
+    </section>
   </aside>
   <% if @user.user_images.any? %>
     <div class="show-images">

@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 
-/* universal */ 
+/* 共通 */ 
 
 * {
   box-sizing: border-box;
@@ -17,7 +17,7 @@ body {
 }
 
 
-/* miscellaneous */
+/* デバック情報 */
 
 .debug_dump {
   clear: both;
@@ -28,14 +28,14 @@ body {
 }
 
 
-/* header */
+/* ヘッダー */
 
 .head {
   border-radius: 0;
 }
 
 
-/* footer */
+/* フッター */
 
 footer {
   margin-top: 30px;
@@ -54,7 +54,7 @@ footer {
 }
 
 
-/* home */
+/* ホーム */
 
 .home {
   text-align: center;
@@ -70,7 +70,7 @@ footer {
 }
 
 
-/* form */
+/* フォーム */
 
 input, textarea, select, .uneditable-input {
   width: 100%;
@@ -94,7 +94,7 @@ input, textarea, select, .uneditable-input {
 }
 
 
-/* gravatar */
+/* グラバター */
 
 .gravatar-edit {
   margin: 10px 10px;
@@ -108,7 +108,7 @@ input, textarea, select, .uneditable-input {
 }
 
 
-/* user_edit_page */
+/* ユーザー編集ページ */
 
 .edit-info {
   margin-top: 20px;
@@ -126,8 +126,10 @@ input, textarea, select, .uneditable-input {
   }
 }
 
+/* パスワード編集ページ*/
 
-/* radio-botton */
+
+/* ラジオボタン */
 
 .radio-btn {
   margin-bottom: 20px;
@@ -146,7 +148,6 @@ input, textarea, select, .uneditable-input {
 
 .users-show {
   h1 {
-    margin-bottom: 50px;
     a {
       text-decoration: none;
       font-size: 15px;
@@ -154,6 +155,24 @@ input, textarea, select, .uneditable-input {
       &:hover {
         color: black;
       }
+    }
+  }
+  .stats {
+    width: 200px;
+    display: inline-block;
+    .stat {
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      strong {
+        display: block;
+        font-size: 20px;
+      }
+    }
+    .stat-bor {
+      border-left: 1px solid rgba(0, 0, 0, 0.5);
+      margin: 0;
+      padding-left: 10px;
     }
   }
 }
@@ -218,6 +237,13 @@ input, textarea, select, .uneditable-input {
 }
 
 
+/*　写真投稿ページ　*/
+
+.up-picture {
+  margin-bottom: 50px;
+}
+
+
 /* 写真詳細ページ */
 
 .image-show {
@@ -239,6 +265,16 @@ input, textarea, select, .uneditable-input {
       color: black;
     }
   }
+}
+
+
+/* フォロー・アンフォローボタン　*/
+
+.follow_form, #follow_form {
+  display: inline-block;
+  width: 200px;
+  position: relative;
+  top: -8px;
 }
 
 

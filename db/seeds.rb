@@ -5,12 +5,12 @@ User.create!( name:      "Example user",
               password_confirmation: "foobar",
               admin: true)
 
-5.times do |n|
+99.times do |n|
   name = Faker::Name.name
   user_name = Faker::Name.name
   email = "example-#{n + 1}@railstutorial.org"
   password = "password"
-  User.create!(name:      name,
+  User.create!(name:     name,
               user_name: user_name,
               email:     email,
               password:              password,
@@ -26,5 +26,11 @@ users = User.order(:created_at).take(6)
 end
 
 
+users = User.all
+user  = User.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
 
 
