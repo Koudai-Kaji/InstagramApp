@@ -134,6 +134,16 @@ footer {
         }
         .timestanp {
           font-weight: bold;
+          display: block;
+        }
+        .show-image {
+          a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              color: black;
+            }
+          }
         }
         .user-imagename {
           display: inline-block;
@@ -225,7 +235,7 @@ input, textarea, select, .uneditable-input {
 /* ユーザー詳細ページ */
 
 .users-show {
-  h1 {
+  .user-prof {
     a {
       text-decoration: none;
       font-size: 15px;
@@ -238,6 +248,7 @@ input, textarea, select, .uneditable-input {
   .stats {
     width: 200px;
     display: inline-block;
+    margin-bottom: 20px;
     .stat {
       display: inline-block;
       font-size: 16px;
@@ -307,7 +318,19 @@ input, textarea, select, .uneditable-input {
         .timestanp {
           display: block;
           width: 200px;
-          margin-bottom: 20px;
+        }
+        .show-image {
+          a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              color: black;
+            }
+          }
+        }
+        input {
+          width: 200px;
+          margin-bottom: 30px;
         }
       }
     }

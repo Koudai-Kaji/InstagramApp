@@ -29,6 +29,16 @@ class UserImageTest < ActiveSupport::TestCase
     assert_equal user_images(:most_recent), UserImage.first
   end
 
+  test "likes method" do
+    @like_user = users(:archer)
+    @user_image.save
+    assert_not @user_image.like_now?(@like_user)
+    @user_image.like_you(@like_user)
+    assert @user_image.like_now?(@like_user)
+    @user_image.unlike_you(@like_user)
+    assert_not @user_image.like_now?(@like_user)
+  end
+
 
 
   

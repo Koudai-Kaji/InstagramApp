@@ -1,0 +1,8 @@
+
+<%= form_for(user_image.likes.build, remote: true) do |f| %>
+  
+  <%= hidden_field_tag :user_image_id, user_image.id %>
+
+  <%= f.submit "いいね！", class: "btn btn-default" %>
+
+<% end %>
