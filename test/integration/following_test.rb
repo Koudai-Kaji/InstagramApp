@@ -36,4 +36,16 @@ class FollowingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "feed on Home page" do
+    get root_path
+    assert_template 'static_pages/home'
+    assert_select 'img.gravatar'
+    assert_select 'h1', text: @user.user_name
+    assert_select 'div.pagination'
+    @user.feed.paginate(page: 1).each do |user_image|
+      assert_select 'img'
+      assert_select 'a[href=?]', user_path(user_image.user)
+    end
+  end
+
 end

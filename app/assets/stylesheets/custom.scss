@@ -69,6 +69,84 @@ footer {
   }
 }
 
+.home-login {
+  h1 {
+    position: relative;
+    left: 100px;
+  }
+  section {
+    position: relative;
+    left: 100px;
+  }
+  .stats {
+    width: 200px;
+    display: inline-block;
+    .stat {
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      strong {
+        display: block;
+        font-size: 20px;
+      }
+    }
+    .stat-bor {
+      border-left: 1px solid rgba(0, 0, 0, 0.5);
+      margin: 0;
+      padding-left: 10px;
+    }
+  }
+  p {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .home-images {
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(250, 248, 248);
+    border-radius: 50px;
+    ol {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+      li {
+        width: 400px;
+        margin: 30px 100px;
+        display: inline-block;
+        text-align: left;
+        
+        .user {
+          a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              color: black;
+            }
+          }
+        }
+        .picture {
+          img {
+            width: 400px;
+            margin-top: 10px;
+          }
+        }
+        .timestanp {
+          font-weight: bold;
+        }
+        .user-imagename {
+          display: inline-block;
+          text-align: center;
+          background-color: white;
+          border-radius: 10px;
+          padding: 10px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
 
 /* フォーム */
 

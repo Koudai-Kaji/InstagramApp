@@ -13,12 +13,12 @@ image2:
 most_recent:
   picture: <%= open("test/fixtures/image3.png", "r") %>
   created_at: <%= Time.zone.now %>
-  user: michael
+  user: lana
 
 image3:
   picture: <%= open("test/fixtures/image4.png", "r") %>
   created_at: <%= 3.years.ago %>
-  user: michael
+  user: malory
 
 image4:
   picture: <%= open("test/fixtures/image4.png", "r") %>

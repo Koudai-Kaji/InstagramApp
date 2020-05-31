@@ -1,8 +1,30 @@
 <% provide(:head_title, "Home") %>
-<div class="home jumbotron">
-  <h1>Welcome to<br>Instagram clone App</h1>
-  <p>友達と写真を共有しよう！</p>
 
-  <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary"%>
-  <%= link_to "ログイン (facebook)", '#', class: "btn btn-lg btn-primary"%>
-</div>
+<% if logged_in? %>
+  <div class="row home-login">
+    <h1>
+      <%= gravatar_for(current_user) %>
+      <%= current_user.user_name %>
+    </h1>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <p>User Feed</p>
+    <div class="col-md-10 col-md-offset-1 home-images">
+      <% if @feed_items.any? %>
+        <ol>
+          <%= render @feed_items %>
+        </ol>
+        <%= will_paginate @feed_items %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="home jumbotron">
+    <h1>Welcome to<br>Instagram clone App</h1>
+    <p>友達と写真を共有しよう！</p>
+
+    <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary"%>
+    <%= link_to "ログイン (facebook)", '#', class: "btn btn-lg btn-primary"%>
+  </div>
+<% end %>

@@ -42,6 +42,13 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def feed
+    following_ids  = "SELECT followed_id FROM relationships
+                      WHERE follower_id = :user_id"
+    UserImage.where( "user_id in (#{following_ids})
+                      OR user_id = :user_id", user_id: id).reorder(created_at: :ASC)
+  end
+
 
 
 end
