@@ -16,4 +16,18 @@
       <% end %>
     <% end %>
   </div>
+  <div class="home-form">
+    <% if @comment %>
+      <%= form_for(@comment) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= hidden_field_tag :user_image_id, user_image.id %>
+
+        <%= f.text_area :body, class: "form-control" %>
+
+        <%= f.submit "Make a Comment", class: "btn btn-primary" %>
+
+      <% end %>
+    <% end %>
+  </div>
 </li>
