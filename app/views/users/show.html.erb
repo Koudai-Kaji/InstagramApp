@@ -1,4 +1,4 @@
-<% provide(:head_title, @user.name) %>
+<% provide(:head_title, @user.user_name) %>
 
 <div class="users-show">
   <aside>
@@ -14,9 +14,14 @@
     <section class="stats">
       <%= render 'shared/stats'%>
     </section>
-    <section class="follow_form">
+    <section class="follow-form">
       <%= render 'follow_form' if logged_in? %>
     </section>
+    <section class="introduce">
+      <h4>＜自己紹介＞</h4>
+      <p><%= @user.introduce %></p>
+    </section>
+    <div class="clear"></div>
   </aside>
   <% if @user.user_images.any? %>
     <div class="show-images">

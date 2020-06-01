@@ -247,8 +247,7 @@ input, textarea, select, .uneditable-input {
   }
   .stats {
     width: 200px;
-    display: inline-block;
-    margin-bottom: 20px;
+    display: block;
     .stat {
       display: inline-block;
       font-size: 16px;
@@ -263,6 +262,20 @@ input, textarea, select, .uneditable-input {
       margin: 0;
       padding-left: 10px;
     }
+  }
+  .follow-form {
+    display: block;
+    margin: 20px 0;
+  }
+  .introduce {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    float: left;
+  }
+  .clear {
+    clear: both;
   }
 }
 
