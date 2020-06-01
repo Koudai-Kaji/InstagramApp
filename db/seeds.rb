@@ -37,3 +37,14 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 
+user_images = UserImage.reorder(:created_at).take(5)
+user = User.first
+50.times do
+  body = Faker::Lorem.sentence
+  user_images.each do |user_image|
+    user_image.comments.create(body: body, user_id: user.id)
+  end
+end
+
+
+

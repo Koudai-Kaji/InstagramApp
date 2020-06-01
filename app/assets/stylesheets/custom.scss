@@ -171,6 +171,7 @@ input, textarea, select, .uneditable-input {
   ul {
     color: red;
     margin: 10px 0 30px 0;
+    list-style: none;
   }
 }
 
@@ -367,7 +368,7 @@ input, textarea, select, .uneditable-input {
   padding: 50px;
   display: inline-block;
   text-align: center;
-  img {
+  .image {
     width: 400px;
     margin-bottom: 10px;
   }
@@ -375,9 +376,42 @@ input, textarea, select, .uneditable-input {
     text-decoration: none;
     display: block;
     color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 50px;
     &:hover {
       color: black;
     }
+  }
+  .comments {
+    ol {
+      list-style: none;
+      li {
+        text-align: left;
+        border-top: 1px solid black;
+        padding: 10px;
+        .gravatar {
+          margin-bottom: 20px;
+        }
+        strong {
+          font-size: 15px;
+          margin-right: 20px;
+        }
+        .comment {
+          display: inline-block;
+          width: 100%;
+          word-wrap: break-word;;
+        }
+        a {
+          text-align: right;
+          margin: 0;
+        }
+        .pagination {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .new_comment {
+    margin-top: 50px;
   }
 }
 

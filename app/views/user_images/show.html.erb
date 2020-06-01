@@ -1,12 +1,36 @@
 <%= provide(:head_title, "Picuture in detail") %>
-<h1 class="text-center">詳細写真</h1>
+<h1 class="text-center">個別写真</h1>
 
 
 <div class="image-show">
-  <%= image_tag(@user_image.picture.url) %>
+  <%= image_tag(@user_image.picture.url, class: "image") if @user_image.picture? %>
 
   <% if current_user == @user_image.user%>
     <%= link_to "Delete picture", user_image_path(@user_image), method: :delete,
                                   data: {confirm: "この写真を削除しますか？"} %>
   <% end %>
+  <% if @comments.any? %>
+    <div class="row comments">
+      <div class="col-md-8 col-md-offset-2">
+        <ol>
+          <%= render @comments %>
+        </ol>
+        <%= will_paginate @comments%>
+      </div>
+    </div> 
+  <% end %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@comment) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= hidden_field_tag :user_image_id, @user_image.id %>
+
+        <%= f.text_area :body, class: "form-control" %>
+
+        <%= f.submit "Make a Comment", class: "btn btn-primary" %>
+
+      <% end %>
+    </div>
+  </div>
 </div>

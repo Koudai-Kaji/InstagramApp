@@ -3,7 +3,9 @@ class UserImagesController < ApplicationController
   before_action :your_picture,   only: [:destroy]
 
   def show
-    @user_image = UserImage.find(params[:id])
+    @user_image  = UserImage.find(params[:id])
+    @comment     = @user_image.comments.build
+    @comments    = @user_image.comments.paginate(page: params[:page])
   end
 
   def new

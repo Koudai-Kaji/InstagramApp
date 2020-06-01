@@ -1,0 +1,37 @@
+comment1:
+  user:       michael
+  user_image: image3
+  body:       "Hello, World"
+
+comment2:
+  user:       michael
+  user_image: image4
+  body:       "Good, Morning"
+
+comment3:
+  user:       archer
+  user_image: image1
+  body:       "Good, Afternoon"
+
+comment4:
+  user:       archer
+  user_image: image2
+  body:       "Good, Evening"
+
+comment5:
+  user:       michael
+  user_image: image1
+  body:       Hi, Ms.Green
+
+<% 30.times do |n| %>
+comment-<%= n %>:
+  user:       michael
+  user_image: image1
+  body:       "30time"
+<% end %>
+
+
+
+
+
+
