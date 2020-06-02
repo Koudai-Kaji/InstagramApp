@@ -3,6 +3,7 @@
 
 
 <div class="image-show">
+  <h2><%= @user_image.name %></h2>
   <%= image_tag(@user_image.picture.url, class: "image") if @user_image.picture? %>
 
   <% if current_user == @user_image.user%>

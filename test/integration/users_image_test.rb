@@ -17,14 +17,16 @@ class UsersImageTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     #有効な送信
     picture = fixture_file_upload("test/fixtures/image1.png", 'image/png')
+    name = "picture name"
     assert_difference 'UserImage.count', 1 do
-      post user_images_path, params: {user_image: {picture: picture}}
+      post user_images_path, params: {user_image: {picture: picture, name: name}}
     end
     user_image = assigns(:user_image)
     assert_not flash.empty?
     assert_redirected_to user_image_path(user_image)
     follow_redirect!
     assert_template 'user_images/show'
+    assert_select "h2", name
     assert_select "img"
     assert_select "a", text: "Delete picture"
     assert_difference 'UserImage.count', -1 do
@@ -37,7 +39,7 @@ class UsersImageTest < ActionDispatch::IntegrationTest
   test "Access show as wrong user" do
     log_in_as(@user)
     picture = fixture_file_upload("test/fixtures/image1.png", 'image/png')
-    post user_images_path, params: {user_image: {picture: picture}}
+    post user_images_path, params: {user_image: {picture: picture, name: @user.name}}
     user_image = assigns(:user_image)
     delete logout_path(@user)
     log_in_as(@other)

@@ -24,7 +24,9 @@ end
 users = User.order(:created_at).take(6)
 50.times do
   users.each do |user|
-    user.user_images.create!(picture: open("test/fixtures/image2.png", "r"))
+    name = Faker::Name.name 
+    user.user_images.create!(picture: open("test/fixtures/image2.png", "r"),
+                                      name: name)
   end
 end
 
@@ -42,7 +44,7 @@ user = User.first
 50.times do
   body = Faker::Lorem.sentence
   user_images.each do |user_image|
-    user_image.comments.create(body: body, user_id: user.id)
+    user_image.comments.create!(body: body, user_id: user.id)
   end
 end
 

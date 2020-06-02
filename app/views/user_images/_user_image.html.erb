@@ -3,6 +3,7 @@
     <%= link_to gravatar_for(user_image.user, size: 50), user_image.user %>
     <span class="user"><%= link_to user_image.user.user_name, user_image.user %></span>
   </div>
+  <span class="picture-name"><%= user_image.name %></span>
   <span class="picture"><%= image_tag(user_image.picture.url,
             id: "img-#{user_image.id}") if user_image.picture? %></span>
   <span class="timestanp"><%= time_ago_in_words(user_image.created_at) %> ago.</span>

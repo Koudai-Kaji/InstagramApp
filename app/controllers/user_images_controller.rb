@@ -33,7 +33,7 @@ class UserImagesController < ApplicationController
 
     #ストロングパラメーター
     def user_image_params
-      params.fetch(:user_image, {}).permit(:picture)
+      params.fetch(:user_image, {}).permit(:picture, :name)
     end
 
     #ストロングパラメーター

@@ -86,7 +86,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated user_images should be destroyed" do
     @user.save
-    @user.user_images.create!(picture: open("test/fixtures/image5.png"))
+    @user.user_images.create!(picture: open("test/fixtures/image5.png"), name: @user.name)
     assert_difference 'UserImage.count', -1 do
       @user.destroy
     end

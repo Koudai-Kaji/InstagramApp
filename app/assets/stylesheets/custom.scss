@@ -131,6 +131,13 @@ footer {
             }
           }
         }
+        .picture-name {
+          display: block;
+          border-top: 1px solid rgba(0, 0, 0, 0.5);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          margin-top: 10px;
+        }
         .picture {
           img {
             width: 400px;
@@ -334,6 +341,14 @@ input, textarea, select, .uneditable-input {
             }
           }
         }
+        .picture-name {
+          display: block;
+          border-top: 1px solid rgba(0, 0, 0, 0.5);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          margin-top: 10px;
+          width: 200px;
+        }
         .timestanp {
           display: block;
           width: 200px;
@@ -373,6 +388,13 @@ input, textarea, select, .uneditable-input {
   padding: 50px;
   display: inline-block;
   text-align: center;
+  h2 {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
   .image {
     width: 400px;
     margin-bottom: 10px;

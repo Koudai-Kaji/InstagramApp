@@ -8,6 +8,8 @@ class UserImage < ApplicationRecord
   validates :user_id, {presence: true}
   validates :picture, {presence: true}
   validate  :picture_size
+  validates :name, {presence: true}
+  validates :name, {length: {maximum: 50}}
 
   
   #写真をいいねする

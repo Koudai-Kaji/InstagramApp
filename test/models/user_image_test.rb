@@ -4,7 +4,8 @@ class UserImageTest < ActiveSupport::TestCase
   
   def setup
     @user = users(:michael)
-    @user_image = @user.user_images.build(picture: open("test/fixtures/image1.png", "r"))
+    @user_image = @user.user_images.build(picture: open("test/fixtures/image1.png", "r"),
+                                          name: "picture title")
   end
 
   test "should be valid" do
@@ -39,8 +40,14 @@ class UserImageTest < ActiveSupport::TestCase
     assert_not @user_image.like_now?(@like_user)
   end
 
+  test "name should be presence" do
+    @user_image.name = nil
+    assert_not @user_image.valid?
+  end
 
-
-  
+  test "name should be under 50" do
+    @user_image.name = "a" * 51
+    assert_not @user_image.valid?
+  end
 
 end
