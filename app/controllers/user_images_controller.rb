@@ -2,6 +2,10 @@ class UserImagesController < ApplicationController
   before_action :logged_in_user, only: [:show, :new, :create, :destroy]
   before_action :your_picture,   only: [:destroy]
 
+  def index
+    @user_images = UserImage.serch(params[:serch]).paginate(page: params[:page])
+  end
+
   def show
     @user_image  = UserImage.find(params[:id])
     @comment     = @user_image.comments.build

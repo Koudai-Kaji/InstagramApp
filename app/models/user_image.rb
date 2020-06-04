@@ -27,6 +27,15 @@ class UserImage < ApplicationRecord
     self.like_users.include?(user)
   end
 
+  #画像を探す
+  def UserImage.serch(serch)
+    if serch
+      UserImage.where("name LIKE ?", "%#{serch}%")
+    else
+      UesrImage.all
+    end
+  end
+
 
   def picture_size
     if picture.size > 5.megabytes

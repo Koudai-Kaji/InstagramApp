@@ -15,7 +15,12 @@
 			<ul class="nav navbar-nav navbar-right">
 				<% if logged_in? %>
 					<li><%= link_to "<Login> #{current_user.user_name}", current_user %></li>
-					<li><%= link_to "検索フォーム", '#'%></>
+					<li class="serch">
+						<%= form_tag(user_images_path, method: :get) do %> 
+							<%= text_field_tag :serch %>
+							<%= submit_tag "serch", name: nil, class: "btn serch-btn" %>
+						<% end %>
+					</li>
 					<li><%= link_to "通知オン・オフ", '#' %></li>
 					<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
 				<% else %>

@@ -32,6 +32,19 @@ body {
 
 .head {
   border-radius: 0;
+  .serch {
+    #serch {
+      width: 150px;
+      margin: 12px 5px 0 0;
+    }
+    form {
+      display: inline-block;
+    }
+    .serch-btn {
+      width: 50px;
+      padding: 0;
+    }
+  }
 }
 
 
@@ -450,6 +463,56 @@ input, textarea, select, .uneditable-input {
   width: 200px;
   position: relative;
   top: -8px;
+}
+
+
+/*　画像検索ページ　*/
+
+.serch-picture {
+  ol {
+    background-color: rgb(250, 248, 248);
+    border-radius: 20px;
+    padding: 50px;
+    list-style: none;
+    li {
+      text-align: center;
+      .user-imagename {
+        text-align: left;
+      }
+      .user {
+        a {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.7);
+          font-size: 20px;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      .picture-name {
+        font-weight: bold;
+        font-size: 20px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .timestanp {
+        display: block;
+      }
+      .show-image {
+        a {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.7);
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      input {
+        width: 200px;
+        margin-bottom: 30px;
+      }
+    }
+  }
 }
 
 
