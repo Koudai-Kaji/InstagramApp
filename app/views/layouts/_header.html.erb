@@ -21,7 +21,19 @@
 							<%= submit_tag "serch", name: nil, class: "btn serch-btn" %>
 						<% end %>
 					</li>
-					<li><%= link_to "通知オン・オフ", '#' %></li>
+					<li>
+						<% if current_user.notice == 0 %>
+							<%= form_for(current_user) do |f| %>
+								<%= f.hidden_field :notice, value: 1 %>
+								<%= f.submit "通知をon", class: "btn btn-default" %>
+							<% end %>
+						<% else %>
+							<%= form_for(current_user) do |f| %>
+								<%= f.hidden_field :notice, value: 0 %>
+								<%= f.submit "通知をoff", class: "btn btn-default" %>
+							<% end %>
+						<% end %>
+					</li>
 					<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
 				<% else %>
 					<li><%= link_to "ログイン", login_path %></li>

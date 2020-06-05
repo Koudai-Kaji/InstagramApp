@@ -46,22 +46,24 @@ class UserImage < ApplicationRecord
 
 
   def create_notification_like(current_user)
-    #すでにいいねされているか検索
-    temp = Notification.where("visitor_id = ? and visited_id = ? and
-                              user_image_id = ? and action = ?",
-                              current_user.id, user_id, id, "like")
-    #いいねされていない場合のみ、通知レコードを作成
-    if temp.blank?
-      notification = current_user.active_notifications.build(
-        visited_id: user_id,
-        user_image_id: id,
-        action: "like"
-      )
-      #自分の投稿に対するコメントは通知済みとする
-      if notification.visitor.id == notification.visited_id
-        notification.checked = true
+    if User.find(self.user_id).notice == 1
+      #すでにいいねされているか検索
+      temp = Notification.where("visitor_id = ? and visited_id = ? and
+                                user_image_id = ? and action = ?",
+                                current_user.id, user_id, id, "like")
+      #いいねされていない場合のみ、通知レコードを作成
+      if temp.blank?
+        notification = current_user.active_notifications.build(
+          visited_id: user_id,
+          user_image_id: id,
+          action: "like"
+        )
+        #自分の投稿に対するコメントは通知済みとする
+        if notification.visitor.id == notification.visited_id
+          notification.checked = true
+        end
+        notification.save if notification.valid?
       end
-      notification.save if notification.valid?
     end
   end
 
@@ -76,18 +78,20 @@ class UserImage < ApplicationRecord
   end
 
   def save_notification_comment(current_user, comment_id, visited_id)
-    #コメントは複数回通知されうる
-    notification = current_user.active_notifications.build(
-      user_image_id: id,
-      comment_id: comment_id,
-      visited_id: visited_id,
-      action: "comment"
-    )
-    #自分の投稿に対するコメントは通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true 
+    if User.find(visited_id).notice == 1
+      #コメントは複数回通知されうる
+      notification = current_user.active_notifications.build(
+        user_image_id: id,
+        comment_id: comment_id,
+        visited_id: visited_id,
+        action: "comment"
+      )
+      #自分の投稿に対するコメントは通知済みとする
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true 
+      end
+      notification.save if notification.valid?
     end
-    notification.save if notification.valid?
   end
 
 end

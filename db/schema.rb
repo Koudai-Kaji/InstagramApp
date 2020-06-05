@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200604052620) do
+ActiveRecord::Schema.define(version: 20200605060208) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20200604052620) do
     t.string "phone_number"
     t.integer "gender", default: 0
     t.boolean "admin", default: false
+    t.integer "notice", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

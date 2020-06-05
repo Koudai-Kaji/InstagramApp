@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to request.referrer || root_url
     else
       render 'edit'
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       params.require(:user).permit( :user_name, :name, :email,
                                     :password, :password_confirmation,
                                     :web_page, :introduce, :phone_number,
-                                    :gender)
+                                    :gender, :notice)
     end
   
 end

@@ -39,7 +39,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                             password: "",
                                             password_confirmation: "",
                                             gender: gender}}
-    assert_redirected_to @user
+    assert_redirected_to root_url
     follow_redirect!
     assert_not flash.empty?
     @user.reload

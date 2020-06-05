@@ -35,7 +35,7 @@ class UserImagesController < ApplicationController
 
   private
 
-    #ストロングパラメーター
+    
     def user_image_params
       params.fetch(:user_image, {}).permit(:picture, :name)
     end
