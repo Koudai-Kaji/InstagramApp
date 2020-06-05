@@ -57,10 +57,10 @@ class UserImage < ApplicationRecord
         user_image_id: id,
         action: "like"
       )
+      #自分の投稿に対するコメントは通知済みとする
       if notification.visitor.id == notification.visited_id
         notification.checked = true
       end
-      #自分の投稿に対するコメントは通知済みとする
       notification.save if notification.valid?
     end
   end
@@ -69,7 +69,7 @@ class UserImage < ApplicationRecord
     #自分以外のコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = Comment.select(:user_id).where(user_image_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
-      save_notification_comment(current_user, comment_id, temp_id['user_id'])
+      save_notification_comment(current_user, comment_id, temp_id[：user_id])
     end
     #投稿者にも通知を送る
     save_notification_comment(current_user, comment_id, user_id)
