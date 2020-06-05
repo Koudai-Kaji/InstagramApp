@@ -3,6 +3,7 @@ class UserImage < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   default_scope -> {order(created_at: :desc)}
   mount_uploader :picture, PictureUploader
   validates :user_id, {presence: true}
@@ -41,6 +42,52 @@ class UserImage < ApplicationRecord
     if picture.size > 5.megabytes
       errors.add(:picture, "should be less than 5MB")
     end
+  end
+
+
+  def create_notification_like(current_user)
+    #すでにいいねされているか検索
+    temp = Notification.where("visitor_id = ? and visited_id = ? and
+                              user_image_id = ? and action = ?",
+                              current_user.id, user_id, id, "like")
+    #いいねされていない場合のみ、通知レコードを作成
+    if temp.blank?
+      notification = current_user.active_notifications.build(
+        visited_id: user_id,
+        user_image_id: id,
+        action: "like"
+      )
+      if notification.visitor.id == notification.visited_id
+        notification.checked = true
+      end
+      #自分の投稿に対するコメントは通知済みとする
+      notification.save if notification.valid?
+    end
+  end
+
+  def create_notification_comment(current_user, comment_id)
+    #自分以外のコメントしている人をすべて取得し、全員に通知を送る
+    temp_ids = Comment.select(:user_id).where(user_image_id: id).where.not(user_id: current_user.id).distinct
+    temp_ids.each do |temp_id|
+      save_notification_comment(current_user, comment_id, temp_id['user_id'])
+    end
+    #投稿者にも通知を送る
+    save_notification_comment(current_user, comment_id, user_id)
+  end
+
+  def save_notification_comment(current_user, comment_id, visited_id)
+    #コメントは複数回通知されうる
+    notification = current_user.active_notifications.build(
+      user_image_id: id,
+      comment_id: comment_id,
+      visited_id: visited_id,
+      action: "comment"
+    )
+    #自分の投稿に対するコメントは通知済みとする
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true 
+    end
+    notification.save if notification.valid?
   end
 
 end

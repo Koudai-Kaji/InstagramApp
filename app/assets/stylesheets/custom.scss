@@ -516,6 +516,31 @@ input, textarea, select, .uneditable-input {
 }
 
 
+/* 通知 */
+
+.notifications {
+  margin-top: 20px;
+  ol {
+    list-style: none;
+    li {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      a {
+        text-decoration: none;
+        color: rgba(0, 0, 255, 0.7);
+      }
+      .time-ago {
+        text-align: right;
+        span {
+          
+        }
+      }
+    }
+  }
+}
+
+
 
 
 

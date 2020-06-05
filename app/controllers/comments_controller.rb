@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment    = @user_image.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      @user_image.create_notification_comment(current_user, @comment.id)
       flash[:success] = "Comment success"
       redirect_to user_image_path(@user_image)
     else
