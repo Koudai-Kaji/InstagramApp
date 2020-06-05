@@ -9,7 +9,7 @@ class UserImagesController < ApplicationController
   def show
     @user_image  = UserImage.find(params[:id])
     @comment     = @user_image.comments.build
-    @comments    = @user_image.comments.paginate(page: params[:page])
+    @comments    = @user_image.comments.order(created_at: :desc).paginate(page: params[:page])
   end
 
   def new
