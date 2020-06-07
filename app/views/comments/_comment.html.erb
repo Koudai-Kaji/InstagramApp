@@ -1,0 +1,15 @@
+<li>
+  <div>
+    <span><%= gravatar_for(comment.user, size: 50) %></span>
+    <strong><%= comment.user.user_name %></strong>
+    <span class="comment"><%= comment.body %></span>
+  </div>
+  <div><%= time_ago_in_words(comment.created_at) %> ago.</div>
+  <% if current_user == comment.user %>
+    <span>
+      <%= link_to "delete", comment_path(comment),
+                            method: :delete,
+                            data: {confirm: "コメントを削除しますか？"} %>
+    </span>
+  <% end %>
+</li>

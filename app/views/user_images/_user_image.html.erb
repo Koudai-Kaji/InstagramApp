@@ -1,0 +1,34 @@
+<li id = "image-<%= user_image.id%>">
+  <div class="user-imagename">
+    <%= link_to gravatar_for(user_image.user, size: 50), user_image.user %>
+    <span class="user"><%= link_to user_image.user.user_name, user_image.user %></span>
+  </div>
+  <span class="picture-name"><%= user_image.name %></span>
+  <span class="picture"><%= image_tag(user_image.picture.url,
+            id: "img-#{user_image.id}") if user_image.picture? %></span>
+  <span class="timestanp"><%= time_ago_in_words(user_image.created_at) %> ago.</span>
+  <span class="show-image"><%= link_to "<詳細ページ>", user_image %></span>
+  <div id="like-unlike-<%= user_image.id %>">
+    <% if logged_in? %>
+      <% if user_image.like_now?(current_user) %>
+        <%= render 'shared/unlike', user_image: user_image %>
+      <% else %>
+        <%= render 'shared/like', user_image: user_image %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="home-form">
+    <% if @comment %>
+      <%= form_for(@comment) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= hidden_field_tag :user_image_id, user_image.id %>
+
+        <%= f.text_area :body, class: "form-control" %>
+
+        <%= f.submit "Make a Comment", class: "btn btn-primary" %>
+
+      <% end %>
+    <% end %>
+  </div>
+</li>

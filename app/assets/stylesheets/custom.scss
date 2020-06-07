@@ -1,0 +1,553 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/* 共通 */ 
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  padding-top: 80px;
+}
+
+
+/* デバック情報 */
+
+.debug_dump {
+  clear: both;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
+
+/* ヘッダー */
+
+.head {
+  border-radius: 0;
+  .serch {
+    #serch {
+      width: 150px;
+      margin: 12px 5px 0 0;
+    }
+    form {
+      display: inline-block;
+    }
+    .serch-btn {
+      width: 50px;
+      padding: 0;
+    }
+  }
+}
+
+
+/* フッター */
+
+footer {
+  margin-top: 30px;
+  background-color: #EEEEEE;
+  height: 160px;
+  line-height: 1px;
+  a {
+    font-size: 24px;
+    display: inline-block;
+    margin-top: 50px;
+  }
+  h3 {
+    text-align: right;
+    color: white;
+  }
+}
+
+
+/* ホーム */
+
+.home {
+  text-align: center;
+  h1 {
+    margin-top: 0;
+  }
+  p {
+    margin-top: 50px;
+  }
+  a {
+    margin-top: 50px;
+  }
+}
+
+.home-login {
+  h1 {
+    position: relative;
+    left: 100px;
+  }
+  section {
+    position: relative;
+    left: 100px;
+  }
+  .stats {
+    width: 200px;
+    display: inline-block;
+    .stat {
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      strong {
+        display: block;
+        font-size: 20px;
+      }
+    }
+    .stat-bor {
+      border-left: 1px solid rgba(0, 0, 0, 0.5);
+      margin: 0;
+      padding-left: 10px;
+    }
+  }
+  p {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .home-form {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    padding-top: 20px
+  }
+  .home-images {
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(250, 248, 248);
+    border-radius: 50px;
+    ol {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+      li {
+        width: 400px;
+        margin: 30px 100px;
+        display: inline-block;
+        text-align: left;
+        
+        .user {
+          a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              color: black;
+            }
+          }
+        }
+        .picture-name {
+          display: block;
+          border-top: 1px solid rgba(0, 0, 0, 0.5);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          margin-top: 10px;
+        }
+        .picture {
+          img {
+            width: 400px;
+            margin-top: 10px;
+          }
+        }
+        .timestanp {
+          font-weight: bold;
+          display: block;
+        }
+        .show-image {
+          a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              color: black;
+            }
+          }
+        }
+        .user-imagename {
+          display: inline-block;
+          text-align: center;
+          background-color: white;
+          border-radius: 10px;
+          padding: 10px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+/* フォーム */
+
+input, textarea, select, .uneditable-input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 10px 0 30px 0;
+    list-style: none;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: rgb(255, 136, 0);
+  }
+}
+
+
+/* グラバター */
+
+.gravatar-edit {
+  margin: 10px 10px;
+  a {
+    color: rgba(15, 15, 15, 0.7);
+    text-decoration: none;
+    &:hover {
+      color: rgba(15, 15, 15, 1);
+    }
+  }
+}
+
+
+/* ユーザー編集ページ */
+
+.edit-info {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  p {
+    margin-bottom: 0;
+    a {
+      color: rgba(15, 15, 15, 0.7);
+      text-decoration: none;
+      &:hover {
+        color: rgba(15, 15, 15, 1);
+      }
+    }
+  }
+}
+
+/* パスワード編集ページ*/
+
+
+/* ラジオボタン */
+
+.radio-btn {
+  margin-bottom: 20px;
+  input, label {
+    display: inline;
+  }
+  input {
+    width: 10px;
+    margin-left: 20px;
+  }
+  
+}
+
+
+/* ユーザー詳細ページ */
+
+.users-show {
+  .user-prof {
+    a {
+      text-decoration: none;
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.7);
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .stats {
+    width: 200px;
+    display: block;
+    .stat {
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      strong {
+        display: block;
+        font-size: 20px;
+      }
+    }
+    .stat-bor {
+      border-left: 1px solid rgba(0, 0, 0, 0.5);
+      margin: 0;
+      padding-left: 10px;
+    }
+  }
+  .follow-form {
+    display: block;
+    margin: 20px 0;
+  }
+  .introduce {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    float: left;
+  }
+  .clear {
+    clear: both;
+  }
+}
+
+
+/* ユーザー詳細ページ　picture */
+
+
+.show-images {
+  background-color: rgb(250, 248, 248);
+  border-radius: 50px;
+  padding-top: 20px;
+  padding-left: 50px;
+  text-align: center;
+  h3 {
+    margin-bottom: 50px;
+    font-size: 40px;
+  }
+  .pagination {
+    text-align: center;
+    display: inline-block;
+  }
+  div {
+    display: inline-block;
+    width: 100%;
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 0 30px;
+        width: 250px;
+        display: inline-block;
+        text-align: left;
+        .gravatar {
+          margin: 0;
+        }
+        img {
+          margin-top: 10px;
+        } 
+        .user {
+          a {
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            height: 50px;
+            line-height: 50px;
+            color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              color: black;
+            }
+          }
+        }
+        .picture-name {
+          display: block;
+          border-top: 1px solid rgba(0, 0, 0, 0.5);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          margin-top: 10px;
+          width: 200px;
+        }
+        .timestanp {
+          display: block;
+          width: 200px;
+        }
+        .show-image {
+          a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              color: black;
+            }
+          }
+        }
+        input {
+          width: 200px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+
+/*　写真投稿ページ　*/
+
+.up-picture {
+  margin-bottom: 50px;
+}
+
+
+/* 写真詳細ページ */
+
+.image-show {
+  width: 100%;
+  background-color: rgb(250, 248, 248);
+  border-radius: 20px;
+  padding: 50px;
+  display: inline-block;
+  text-align: center;
+  h2 {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+  .image {
+    width: 400px;
+    margin-bottom: 10px;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 50px;
+    &:hover {
+      color: black;
+    }
+  }
+  .comments {
+    ol {
+      list-style: none;
+      li {
+        text-align: left;
+        border-top: 1px solid black;
+        padding: 10px;
+        .gravatar {
+          margin-bottom: 20px;
+        }
+        strong {
+          font-size: 15px;
+          margin-right: 20px;
+        }
+        .comment {
+          display: inline-block;
+          width: 100%;
+          word-wrap: break-word;;
+        }
+        a {
+          text-align: right;
+          margin: 0;
+        }
+        .pagination {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .new_comment {
+    margin-top: 50px;
+  }
+}
+
+
+/* フォロー・アンフォローボタン　*/
+
+.follow_form, #follow_form {
+  display: inline-block;
+  width: 200px;
+  position: relative;
+  top: -8px;
+}
+
+
+/*　画像検索ページ　*/
+
+.serch-picture {
+  ol {
+    background-color: rgb(250, 248, 248);
+    border-radius: 20px;
+    padding: 50px;
+    list-style: none;
+    li {
+      text-align: center;
+      .user-imagename {
+        text-align: left;
+      }
+      .user {
+        a {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.7);
+          font-size: 20px;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      .picture-name {
+        font-weight: bold;
+        font-size: 20px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .timestanp {
+        display: block;
+      }
+      .show-image {
+        a {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.7);
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      input {
+        width: 200px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+
+/* 通知 */
+
+.notifications {
+  margin-top: 20px;
+  ol {
+    list-style: none;
+    li {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      a {
+        text-decoration: none;
+        color: rgba(0, 0, 255, 0.7);
+      }
+      .time-ago {
+        text-align: right;
+        span {
+          
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

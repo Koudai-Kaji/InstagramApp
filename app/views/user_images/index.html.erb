@@ -1,0 +1,13 @@
+<div class="serch-picture">
+  <%= provide(:head_title, "Serch Picture") %>
+  <h1 class="text-center">検索画像</h1>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <ol>
+        <%= render @user_images %>
+      </ol>
+      <%= will_paginate @user_images %>
+    </div>
+  </div>
+</div>

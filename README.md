@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+未実装機能
 
-* Ruby version
+・facebookでのログイン
+・画像の自由検索
+・通知機能
+・ユーザー個別ページでのモーダル機能
 
-* System dependencies
+２週間という決められた期間のなかで、これらの機能を実装することができませんでした。
+自分自身の実力不足を痛感しました。
 
-* Configuration
+## 自分が苦労した点
 
-* Database creation
+  エラーが発生した際に、どこでエラーが発生して何が問題なのかを見つけることに苦労しました。
 
-* Database initialization
+## 学んだ点
 
-* How to run the test suite
+  railstutorialに記載のある事項以外の機能を一から導入したことで、自分で考えて
+  機能を追加するための基本的な手順を学ぶことができたと思います。
 
-* Services (job queues, cache servers, search engines, etc.)
+## 自慢したい・相談したい点
 
-* Deployment instructions
-
-* ...
+  自慢出来る箇所は特にありません。
+  相談したいこととしましては、エラーが発生した際に解決に手間取ることが多かったので
+  エラーが発生した際にエンジニアの方々が行う解決へ向けての手順のような物が知りたいです。

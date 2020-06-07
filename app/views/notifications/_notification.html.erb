@@ -1,0 +1,28 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<li>
+  <span class="notification">
+    <%= gravatar_for(visitor, size: 50) %>
+    <strong><%= visitor.name %></strong> さんが
+  </span>
+
+  <% if notification.action == "like" %>
+    <span>
+      <%= link_to "あなたの投稿", notification.user_image %>
+      にいいねしました。
+    </span>
+  <% elsif notification.action == "comment" %>
+    <span>
+      <% if notification.user_image.user_id == visited.id %>
+        <%= link_to "あなたの投稿 ", notification.user_image %>にコメントしました。
+      <% else %>
+        <%= link_to "#{notification.user_image.user.user_name}さんの投稿 ",
+            notification.user_image %>にコメントしました。
+      <% end %>
+    </span>
+  <% end %>
+  <div class="time-ago">
+    <span> <%= time_ago_in_words(notification.created_at) %> ago. </span>
+  </div>
+  
+</li>

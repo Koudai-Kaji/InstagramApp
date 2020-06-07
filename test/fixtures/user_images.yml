@@ -1,0 +1,40 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+image1:
+  picture: <%= open("test/fixtures/image1.png", "r") %>
+  created_at: <%= 10.minutes.ago %>
+  user: michael
+  name: "test"
+
+image2:
+  picture: <%= open("test/fixtures/image2.png", "r") %>
+  created_at: <%= 2.hours.ago %>
+  user: michael
+  name: "image2"
+
+most_recent:
+  picture: <%= open("test/fixtures/image3.png", "r") %>
+  created_at: <%= Time.zone.now %>
+  user: lana
+  name: "most_recent"
+
+image3:
+  picture: <%= open("test/fixtures/image4.png", "r") %>
+  created_at: <%= 3.years.ago %>
+  user: malory
+  name: "image3"
+
+image4:
+  picture: <%= open("test/fixtures/image4.png", "r") %>
+  created_at: <%= 2.years.ago %>
+  user: archer
+  name: "image4"
+
+<% 30.times do |n| %>
+<% name = Faker::Name.name %>
+image_<%= n %>:
+  picture: <%= open("test/fixtures/image5.png", "r") %>
+  created_at: <%= 3.days.ago %>
+  user: michael
+  name: <%= name %>
+<% end %>

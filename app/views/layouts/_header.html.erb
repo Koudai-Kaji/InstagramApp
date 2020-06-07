@@ -1,0 +1,44 @@
+<nav class="head navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+                          data-toggle="collapse" data-target="#navbarEexample1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/"><%= full_title(yield(:head_title))%></a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample1">
+			<ul class="nav navbar-nav navbar-right">
+				<% if logged_in? %>
+					<li><%= link_to "<Login> #{current_user.user_name}", current_user %></li>
+					<li class="serch">
+						<%= form_tag(user_images_path, method: :get) do %> 
+							<%= text_field_tag :serch %>
+							<%= submit_tag "serch", name: nil, class: "btn serch-btn" %>
+						<% end %>
+					</li>
+					<li>
+						<% if current_user.notice == 0 %>
+							<%= form_for(current_user) do |f| %>
+								<%= f.hidden_field :notice, value: 1 %>
+								<%= f.submit "通知をon", class: "btn btn-default" %>
+							<% end %>
+						<% else %>
+							<%= form_for(current_user) do |f| %>
+								<%= f.hidden_field :notice, value: 0 %>
+								<%= f.submit "通知をoff", class: "btn btn-default" %>
+							<% end %>
+						<% end %>
+					</li>
+					<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+				<% else %>
+					<li><%= link_to "ログイン", login_path %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</nav>

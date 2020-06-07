@@ -1,0 +1,24 @@
+michael:
+  name: Michael Example
+  user_name: michael
+  email: michael@example.com
+  password_digest: <%= User.digest("password") %>
+  admin: true
+
+archer:
+  name: Archer Example
+  user_name: arch
+  email: archer@example.com
+  password_digest: <%= User.digest("password") %>
+
+lana:
+  name: Lana Example
+  user_name: lana
+  email: lana@example.com
+  password_digest: <%= User.digest("password") %>
+
+malory:
+  name: Malory Example
+  user_name: marie
+  email: malory@example.com
+  password_digest: <%= User.digest("password") %>
